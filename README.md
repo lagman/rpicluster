@@ -1,4 +1,3 @@
-========================================================================================
 RPiCluster Repository
 ========================================================================================
 8-13-2013
@@ -45,10 +44,6 @@ Cortex-A9 ARM processor running at 1GHz.
 
 This repository contains the EagleCAD v5.x design files, MPI test code, C test code, and
 Bash scripts I used for developing and testing the RPiCluster. 
-
-----------------------------------------------------------------------------------------
-Resource Descriptions
-----------------------------------------------------------------------------------------
 
 Documentation
 -----------------------
