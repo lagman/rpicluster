@@ -2,12 +2,14 @@ RPiCluster Repository
 ========================================================================================
 8-13-2013
 
-Joshua Kiepert
+Joshua Kiepert  
+Boise State University  
+Department of Electrical and Computer Engineering  
 joshkiepert@boisestate.edu
 
 Overview
 ----------------------------------------------------------------------------------------
-The RPiCluster project was started in late Spring 2013 in response to a need during my PhD
+The RPiCluster project was started in Spring 2013 in response to a need during my PhD
 dissertation research. My research is currently focused on developing a novel data sharing system
 for wireless sensor networks to facilitate in-network collaborative processing of sensor data. 
 In the process of developing this system it became clear that perhaps the most expedient way to 
@@ -35,8 +37,7 @@ each node in one of the clusters available to students here at BSU, was about $1
 much more than the price of one PC-based node, I could create a 32 node Raspberry Pi
 cluster!
 
-Update
------------------------
+Update:
 While the BeagleBone Black was not available when I started this project, I would have chosen it 
 rather than the Raspberry Pi had it been available. It is the same cost once you include an SD 
 card, but it has onboard 2GB of flash storage for the operating system. It also uses a 
@@ -47,11 +48,11 @@ Bash scripts I used for developing and testing the RPiCluster.
 
 Documentation
 -----------------------
-+ docs/Creating.a.Raspberry.Pi-Based.Beowulf.Cluster[BSU].pdf
++ docs/Creating.a.Raspberry.Pi-Based.Beowulf.Cluster[BSU].pdf  
 	Original white paper on the development of the RPiCluster.
 
-+ docs/Creating.a.Raspberry.Pi-Based.Beowulf.Cluster[EEWeb].pdf
-	Shorter article written for EEWeb's Pulse Magazine
++ docs/Creating.a.Raspberry.Pi-Based.Beowulf.Cluster[EEWeb].pdf  
+	Shorter article written for EEWeb's Pulse Magazine  
 	http://www.eeweb.com/pulse/issue-106-2013
 
 EagleCAD v5.x Resources
