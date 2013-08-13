@@ -59,32 +59,32 @@ EagleCAD v5.x Resources
 -----------------------
 + eagle/power-led:  
 	PCB layout for RPiCluster power/led boards
-+ eagle/case-layout:
++ eagle/case-layout:  
 	Plexiglas panel layout (panel measurements, hole patterns, etc)
 
 C Resources
 -----------------------
-+ c/blink
++ c/blink  
 	C program that utilizes the wiringPi library to drive the RGB LED on the Power/LED board.
 
 MPI Resources
 -----------------------
-+ mpi/pblink
++ mpi/pblink  
 	C MPI program that blinks the RGB LEDs in various patterns on the RPiCluster.
 
 Bash Script Resources
 -----------------------
-+ scripts/cexec
++ scripts/cexec  
 	Executes a program on multiple machines via SSH
-+ scripts/cscp
++ scripts/cscp  
 	Copies a local file to multiple machines via SSH
-+ scripts/cshutdown
++ scripts/cshutdown  
 	Powers down multiple machines via SSH
-+ scripts/cssh-copy-id
++ scripts/cssh-copy-id  
 	Copies SSH identity to multiple machines for passwordless SSH
-+ scripts/rgb-blink
++ scripts/rgb-blink  
 	Blinks the RGB LEDs on the Power/LED board (using file I/O)
-+ scripts/rpitemp
++ scripts/rpitemp  
 	Gets the RPi's SoC temperature
-+ ssh-everywhere.sh
++ ssh-everywhere.sh  
 	Handy script for creating an SSH session on many machines using tmux
