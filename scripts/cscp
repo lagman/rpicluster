@@ -1,0 +1,23 @@
+#!/bin/bash
+# Copies the specified file <source> to the specified location <target> on all 
+# the machines specified in the <machines file>. 
+# Author: Joshua Kiepert
+# Date: 5-20-2013
+
+if [ $# -lt 3 ]; then
+   echo "usage: cscp <machines file> <source> <target>"
+   exit
+fi
+
+SCP=/usr/bin/scp
+HOSTS=$1
+SRC=$2
+TARG=$3
+
+# Run command on remote machines 
+NODES=$(cat $HOSTS)
+for node in $NODES;
+do
+   echo "Copying $SRC => $node:$TARG" 
+   $SCP $SRC "$node:$TARG"
+done

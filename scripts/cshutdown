@@ -1,0 +1,24 @@
+#!/bin/bash
+# Powers down all machines listed in the supplied file.
+# You'd better have SSH certificate authentication working!
+# Author: Joshua Kiepert
+# Date: 5-20-2013
+
+if [ $# -lt 1 ]; then
+    echo "usage: cshutdown <machine file>"
+    exit
+fi
+
+SSH=/usr/bin/ssh
+NFSUMOUNT="/bin/umount -a -t nfs4"
+POWERCMD="/sbin/shutdown -h now"
+HOSTS=$1
+
+# Shutdown nodes in provided file
+nodes=$(cat $HOSTS)
+for node in $nodes;
+do
+    $SSH -l root $node $NFSUMOUNT
+    sleep 2
+    $SSH -l root $node $POWERCMD
+done

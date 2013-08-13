@@ -1,0 +1,120 @@
+#!/bin/bash
+#
+# Purpose:
+# 	Demos toggling a gpio pin at the rate specified (s)
+# 	on the Raspberry Pi utilizing file I/O.
+# 
+#  	GPIO pin numbers: 
+# 		4 (pin 7)
+# 		17 (pin 11)
+# 		18 (pin 12)
+# 		21 (pin 13)
+# 		22 (pin 15)
+# 		23 (pin 16)
+# 		24 (pin 18)
+# 		25 (pin 22)
+# 	run: 	sudo ./bashblink <gpio> <period(s)>
+# 		sudo ./bashblink 18 0.5
+#		sudo ./bashblink
+# 
+# Author: Joshua Kiepert
+# Date: 2013-03-08
+bio=18
+rio=17
+gio=4
+
+function gpio_open_out () {
+  echo "$1" > /sys/class/gpio/export
+  echo "out" > /sys/class/gpio/"gpio$1"/direction
+}
+
+function gpio_open_in () {
+  echo "$1" > /sys/class/gpio/export
+  echo "in" > /sys/class/gpio/"gpio$1"/direction
+}
+
+function gpio_close () {
+  echo "$1" > /sys/class/gpio/unexport
+}
+
+function gpio_write () {
+  echo "$2" > /sys/class/gpio/"gpio$1"/value
+}
+
+function gpio_read () {
+  cat /sys/class/gpio/"gpio$1"/value
+}
+
+cleanup()
+# example cleanup function
+{
+  gpio_write $rio 1
+  gpio_write $gio 1
+  gpio_write $bio 1
+  gpio_close $rio
+  gpio close $gio
+  gpio close $bio
+}
+ 
+control_c()
+# run if user hits control-c
+{
+  echo -e "\n*** Exiting ***\n"
+  cleanup
+  exit
+}
+ 
+# trap keyboard interrupt (control-c)
+trap control_c SIGINT
+
+if [ $# -ne 1 ]; then
+  rate=0.5
+else
+  rate=$1
+fi
+
+rgpiodev="/sys/class/gpio/gpio$bio/value"
+ggpiodev="/sys/class/gpio/gpio$rio/value"
+bgpiodev="/sys/class/gpio/gpio$gio/value"
+  
+if [ -f $rgpiodev ]; then
+  gpio_close $rio 
+  gpio_open_out $rio
+else
+  gpio_open_out $rio
+fi
+
+if [ -f $bgpiodev ]; then
+  gpio_close $bio 
+  gpio_open_out $bio
+else
+  gpio_open_out $bio
+fi
+
+if [ -f $ggpiodev ]; then
+  gpio_close $gio 
+  gpio_open_out $gio
+else
+  gpio_open_out $gio
+fi
+
+gpio_write $rio 1
+gpio_write $gio 1
+gpio_write $bio 1
+
+while true
+do
+  gpio_write $rio 0
+  sleep $rate
+  gpio_write $rio 1
+  sleep $rate
+  gpio_write $gio 0
+  sleep $rate
+  gpio_write $gio 1
+  sleep $rate
+  gpio_write $bio 0
+  sleep $rate
+  gpio_write $bio 1
+  sleep $rate
+done
+

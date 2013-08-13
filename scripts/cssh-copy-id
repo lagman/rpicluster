@@ -1,0 +1,28 @@
+#!/bin/bash
+# Copies SSH identity (public key) to all machines specified in the 
+# <machines file> with the current user or the specified user [user].
+# Assumes an identity already exists under [user]/.ssh/
+# Author: Joshua Kiepert
+# Date: 5-20-2013
+
+if [ $# -lt 1 ]; then
+   echo "usage: cssh-copy-id <machines file> [user]"
+   exit
+fi
+
+if [ $# -eq 2 ]; then
+  USER=$2
+else
+  USER=$(whoami)
+fi
+
+SSHCPID=/usr/bin/ssh-copy-id
+HOSTS=$1
+
+# Run command on remote machines 
+NODES=$(cat $HOSTS)
+for node in $NODES;
+do
+   #echo "Executing: $CMD on $node" 
+   $SSHCPID "$USER@$node"
+done

@@ -1,0 +1,29 @@
+#!/bin/bash
+# Executes the given <cmd> on all of the machines specified in the 
+# <machines file>. If the <cmd> needs to run as another user, e.g. root
+# then it must be specified in the [user] argument.
+# Author: Joshua Kiepert
+# Date: 5-20-2013
+
+if [ $# -lt 2 ]; then
+   echo "usage: cexec <machines file> <cmd> [user]"
+   exit
+fi
+
+if [ $# -eq 3 ]; then
+  USER=$3
+else
+  USER=$(whoami)
+fi
+
+SSH=/usr/bin/ssh
+HOSTS=$1
+CMD=$2
+
+# Run command on remote machines 
+NODES=$(cat $HOSTS)
+for NODE in $NODES;
+do
+   echo "Executing: $CMD on $NODE" 
+   $SSH -l $USER $NODE "$CMD"
+done

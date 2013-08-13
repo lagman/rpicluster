@@ -1,0 +1,13 @@
+#!/bin/bash
+# Prints the RPi's SoC temperature in Celcius
+# Josh Kiepert
+# Created: 4-05-2013
+# Modified: 7-24-2013 
+temp=$(echo "$(cat /sys/class/thermal/thermal_zone0/temp)/1000.0" | bc -l)
+host=$(hostname)
+
+if [ $# -eq 1 ] && [ $1 = '-t' ]; then
+    echo "$(printf "%0.3f" $temp)"
+else
+    echo "$host: $(printf "%0.2f" $temp) 'C"
+fi
