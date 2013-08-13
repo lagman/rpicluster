@@ -57,9 +57,9 @@ Documentation
 
 EagleCAD v5.x Resources
 -----------------------
-+ eagle/power-led:  
++ eagle/power-led  
 	PCB layout for RPiCluster power/led boards
-+ eagle/case-layout:  
++ eagle/case-layout  
 	Plexiglas panel layout (panel measurements, hole patterns, etc)
 
 C Resources
