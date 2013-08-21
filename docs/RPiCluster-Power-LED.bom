@@ -1,0 +1,10 @@
+Partlist exported bitbucket/rpicluster/eagle/power-led/RPiCluster-Power-LED.sch at 8/21/13 3:50 PM
+
+Qty Value                         Device                        Parts   
+2                                 M02PTH                        JP1, JP3
+1                                 PINHD-1X2/90                  JP2     
+2   30                            R-US_R0603                    R2, R3  
+1   150                           R-US_R0603                    R1      
+1   LITTLEFUSE_1812L110/33MR_PPTC LITTLEFUSE_1812L110/33MR_PPTC PF1     
+1   LTST-C19FD1WT                 LTST-C19FD1WT                 LD1     
+1   P2                            RASPI_GPIO_HEADER_P2(1-12)    RPI     
