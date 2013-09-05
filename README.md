@@ -41,7 +41,7 @@ Update:
 While the BeagleBone Black was not available when I started this project, I would have chosen it 
 rather than the Raspberry Pi had it been available. It is the same cost once you include an SD 
 card, but it has onboard 2GB of flash storage for the operating system. It also uses a 
-Cortex-A9 ARM processor running at 1GHz.
+Cortex-A8 ARM processor running at 1GHz.
 
 This repository contains the EagleCAD v5.x design files, MPI test code, C test code, and
 Bash scripts I used for developing and testing the RPiCluster. 
